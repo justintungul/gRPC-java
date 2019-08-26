@@ -1,9 +1,7 @@
 package com.justin.grpc.greeting.server;
 
-import com.justin.proto.*;
+import com.justin.proto.greet.*;
 import io.grpc.stub.StreamObserver;
-
-import java.util.stream.Stream;
 
 public class GreetServiceImpl extends GreetServiceGrpc.GreetServiceImplBase {
   @Override
@@ -103,7 +101,7 @@ public class GreetServiceImpl extends GreetServiceGrpc.GreetServiceImplBase {
 
       @Override
       public void onCompleted() {
-        System.out.println("Client is done sending data");
+        System.out.println();
         responseObserver.onCompleted();
       }
     };

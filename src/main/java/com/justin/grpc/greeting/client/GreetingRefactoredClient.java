@@ -1,6 +1,6 @@
 package com.justin.grpc.greeting.client;
 
-import com.justin.proto.*;
+import com.justin.proto.greet.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;

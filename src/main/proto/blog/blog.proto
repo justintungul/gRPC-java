@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package blog;
+
+option java_package = "com.justin.proto.blog";
+option java_multiple_files = true;
+
+message Blog {
+    string id = 1;
+    string author_id = 2;
+    string title = 3;
+    string content = 4;
+}
+
+message CreateBlogRequest {
+    Blog blog = 1; // id shouldn't matter
+}
+
+message CreateBlogResponse {
+    Blog blog = 1; // id will correspond to the one in mongodb
+}
+
+message ReadBlogRequest {
+    string blog_id = 1;
+}
+
+message ReadBlogResponse {
+    Blog blog = 1;
+}
+
+message UpdateBlogRequest {
+    Blog blog = 1;
+}
+
+message UpdateBlogResponse {
+    Blog blog = 1;
+}
+
+message DeleteBlogRequest {
+    string blog_id = 1;
+}
+
+message DeleteBlogResponse {
+    string blog_id = 1;
+}
+
+// empty for now, filters may be placed here
+message ListBlogsRequest {
+}
+
+message ListBlogsResponse {
+    Blog blog = 1;
+}
+
+service BlogService {
+    rpc CreateBlog(CreateBlogRequest) returns (CreateBlogResponse) {};
+    rpc ReadBlog(ReadBlogRequest) returns (ReadBlogResponse) {}; // returns NOT_FOUND if not found
+    rpc UpdateBlog(UpdateBlogRequest) returns (UpdateBlogResponse) {}; // returns NOT_FOUND if not found
+    rpc DeleteBlog(DeleteBlogRequest) returns (DeleteBlogResponse) {}; // returns NOT_FOUND if not found
+    rpc ListBlogs(ListBlogsRequest) returns (stream ListBlogsResponse) {};
+}

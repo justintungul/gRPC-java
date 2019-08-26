@@ -1,8 +1,9 @@
 package com.justin.grpc.greeting.client;
 
-import com.justin.grpc.greeting.server.GreetServiceImpl;
-import com.justin.proto.*;
-import com.justin.proto.dummy.DummyServiceGrpc;
+import com.justin.proto.greet.GreetRequest;
+import com.justin.proto.greet.GreetResponse;
+import com.justin.proto.greet.GreetServiceGrpc;
+import com.justin.proto.greet.Greeting;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
